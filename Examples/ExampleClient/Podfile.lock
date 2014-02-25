@@ -1,0 +1,17 @@
+PODS:
+  - ELStompClient (0.0.1):
+    - SocketRocket
+  - SocketRocket (0.3.1-beta2)
+
+DEPENDENCIES:
+  - ELStompClient (from `../../`)
+
+EXTERNAL SOURCES:
+  ELStompClient:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  ELStompClient: de59bc378c7e8a5e7c98be14cf7921e2f9ec2795
+  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
+
+COCOAPODS: 0.29.0
