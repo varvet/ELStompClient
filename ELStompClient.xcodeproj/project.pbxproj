@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB60027E2DD7460D88ACAEBD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 298E4BD6DC7B446B9128EE40 /* libPods.a */; };
+		D68089AEC7E5461CBFA9F606 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA0A62156D7B4935AEE2EBBD /* libPods-test.a */; };
 		D70AA6BC18B7785700481498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D70AA6BB18B7785700481498 /* Foundation.framework */; };
 		D70AA6C118B7785700481498 /* ELStompClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D70AA6C018B7785700481498 /* ELStompClient.h */; };
 		D70AA6C318B7785700481498 /* ELStompClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6C218B7785700481498 /* ELStompClient.m */; };
@@ -16,6 +18,10 @@
 		D70AA6D018B7785700481498 /* libELStompClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D70AA6B818B7785700481498 /* libELStompClient.a */; };
 		D70AA6D618B7785700481498 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D70AA6D418B7785700481498 /* InfoPlist.strings */; };
 		D70AA6D818B7785700481498 /* ELStompClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6D718B7785700481498 /* ELStompClientTests.m */; };
+		D70AA6E318B778C600481498 /* ELStompFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6E218B778C600481498 /* ELStompFrame.m */; };
+		D70AA6E618B7791D00481498 /* ELStompFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6E518B7791D00481498 /* ELStompFrameTests.m */; };
+		D70AA6EA18B7A47A00481498 /* ELWebsocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6E918B7A47A00481498 /* ELWebsocketTransport.m */; };
+		D70AA6ED18B7AC6B00481498 /* ELWebsocketTransportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D70AA6EC18B7AC6B00481498 /* ELWebsocketTransportTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		298E4BD6DC7B446B9128EE40 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70AA6B818B7785700481498 /* libELStompClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libELStompClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70AA6BB18B7785700481498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D70AA6BF18B7785700481498 /* ELStompClient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ELStompClient-Prefix.pch"; sourceTree = "<group>"; };
@@ -53,6 +60,16 @@
 		D70AA6D318B7785700481498 /* ELStompClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ELStompClientTests-Info.plist"; sourceTree = "<group>"; };
 		D70AA6D518B7785700481498 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D70AA6D718B7785700481498 /* ELStompClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELStompClientTests.m; sourceTree = "<group>"; };
+		D70AA6E118B778C600481498 /* ELStompFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELStompFrame.h; sourceTree = "<group>"; };
+		D70AA6E218B778C600481498 /* ELStompFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELStompFrame.m; sourceTree = "<group>"; };
+		D70AA6E518B7791D00481498 /* ELStompFrameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELStompFrameTests.m; sourceTree = "<group>"; };
+		D70AA6E718B7A25F00481498 /* ELStompTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELStompTransport.h; sourceTree = "<group>"; };
+		D70AA6E818B7A47A00481498 /* ELWebsocketTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELWebsocketTransport.h; sourceTree = "<group>"; };
+		D70AA6E918B7A47A00481498 /* ELWebsocketTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELWebsocketTransport.m; sourceTree = "<group>"; };
+		D70AA6EC18B7AC6B00481498 /* ELWebsocketTransportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELWebsocketTransportTests.m; sourceTree = "<group>"; };
+		E7A06C2E5B99461A9007360A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EA0A62156D7B4935AEE2EBBD /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F398E7C867A74EC59F746B52 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D70AA6BC18B7785700481498 /* Foundation.framework in Frameworks */,
+				CB60027E2DD7460D88ACAEBD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +90,7 @@
 				D70AA6CD18B7785700481498 /* UIKit.framework in Frameworks */,
 				D70AA6CB18B7785700481498 /* Foundation.framework in Frameworks */,
 				D70AA6D018B7785700481498 /* libELStompClient.a in Frameworks */,
+				D68089AEC7E5461CBFA9F606 /* libPods-test.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +104,8 @@
 				D70AA6D118B7785700481498 /* ELStompClientTests */,
 				D70AA6BA18B7785700481498 /* Frameworks */,
 				D70AA6B918B7785700481498 /* Products */,
+				E7A06C2E5B99461A9007360A /* Pods.xcconfig */,
+				F398E7C867A74EC59F746B52 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +124,8 @@
 				D70AA6BB18B7785700481498 /* Foundation.framework */,
 				D70AA6C918B7785700481498 /* XCTest.framework */,
 				D70AA6CC18B7785700481498 /* UIKit.framework */,
+				298E4BD6DC7B446B9128EE40 /* libPods.a */,
+				EA0A62156D7B4935AEE2EBBD /* libPods-test.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +135,11 @@
 			children = (
 				D70AA6C018B7785700481498 /* ELStompClient.h */,
 				D70AA6C218B7785700481498 /* ELStompClient.m */,
+				D70AA6E118B778C600481498 /* ELStompFrame.h */,
+				D70AA6E218B778C600481498 /* ELStompFrame.m */,
+				D70AA6E718B7A25F00481498 /* ELStompTransport.h */,
+				D70AA6E818B7A47A00481498 /* ELWebsocketTransport.h */,
+				D70AA6E918B7A47A00481498 /* ELWebsocketTransport.m */,
 				D70AA6BE18B7785700481498 /* Supporting Files */,
 			);
 			path = ELStompClient;
@@ -129,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				D70AA6D718B7785700481498 /* ELStompClientTests.m */,
+				D70AA6E518B7791D00481498 /* ELStompFrameTests.m */,
+				D70AA6EC18B7AC6B00481498 /* ELWebsocketTransportTests.m */,
 				D70AA6D218B7785700481498 /* Supporting Files */,
 			);
 			path = ELStompClientTests;
@@ -150,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D70AA6DB18B7785700481498 /* Build configuration list for PBXNativeTarget "ELStompClient" */;
 			buildPhases = (
+				198F11957661403BB723F47B /* Check Pods Manifest.lock */,
 				D70AA6B418B7785700481498 /* Sources */,
 				D70AA6B518B7785700481498 /* Frameworks */,
 				D70AA6B618B7785700481498 /* CopyFiles */,
+				9F873E42ACAE462F94BAC151 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D70AA6DE18B7785700481498 /* Build configuration list for PBXNativeTarget "ELStompClientTests" */;
 			buildPhases = (
+				784E575303064A359F3CF372 /* Check Pods Manifest.lock */,
 				D70AA6C418B7785700481498 /* Sources */,
 				D70AA6C518B7785700481498 /* Frameworks */,
 				D70AA6C618B7785700481498 /* Resources */,
+				F9E350B86C30412B80E6AD28 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,6 +221,7 @@
 		D70AA6B018B7785700481498 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EL;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Elabs;
 			};
@@ -219,12 +254,77 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		198F11957661403BB723F47B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		784E575303064A359F3CF372 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F873E42ACAE462F94BAC151 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9E350B86C30412B80E6AD28 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D70AA6B418B7785700481498 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70AA6E318B778C600481498 /* ELStompFrame.m in Sources */,
 				D70AA6C318B7785700481498 /* ELStompClient.m in Sources */,
+				D70AA6EA18B7A47A00481498 /* ELWebsocketTransport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +332,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70AA6ED18B7AC6B00481498 /* ELWebsocketTransportTests.m in Sources */,
+				D70AA6E618B7791D00481498 /* ELStompFrameTests.m in Sources */,
 				D70AA6D818B7785700481498 /* ELStompClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,11 +432,12 @@
 		};
 		D70AA6DC18B7785700481498 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7A06C2E5B99461A9007360A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ELStompClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ELStompClient/ELStompClient-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -342,11 +445,12 @@
 		};
 		D70AA6DD18B7785700481498 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7A06C2E5B99461A9007360A /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/ELStompClient.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ELStompClient/ELStompClient-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -354,6 +458,7 @@
 		};
 		D70AA6DF18B7785700481498 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F398E7C867A74EC59F746B52 /* Pods-test.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -368,6 +473,14 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ELStompClientTests/ELStompClientTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-licucore",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					Security,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -375,6 +488,7 @@
 		};
 		D70AA6E018B7785700481498 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F398E7C867A74EC59F746B52 /* Pods-test.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -385,6 +499,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ELStompClient/ELStompClient-Prefix.pch";
 				INFOPLIST_FILE = "ELStompClientTests/ELStompClientTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-licucore",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					Security,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -409,6 +531,7 @@
 				D70AA6DD18B7785700481498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D70AA6DE18B7785700481498 /* Build configuration list for PBXNativeTarget "ELStompClientTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +540,7 @@
 				D70AA6E018B7785700481498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
