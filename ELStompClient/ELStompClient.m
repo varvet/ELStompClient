@@ -72,19 +72,30 @@
 #pragma mark - Subscriptions
 
 - (NSString *)subscribeToDestination:(NSString *)destination withBlock:(ELSubscriptionCallback)block {
-  static NSInteger counter = 0;
-  NSString *subscriptionId = [NSString stringWithFormat:@"sub-%d", counter++];
-
-  return [self subscribeToDestination:destination withBlock:block useId:subscriptionId];
+  return [self subscribeToDestination:destination ackMode:@"auto" withBlock:block];
 }
 
 - (NSString *)subscribeToDestination:(NSString *)destination withBlock:(ELSubscriptionCallback)block useId:(NSString *)subscriptionId {
+  return [self subscribeToDestination:destination ackMode:@"auto" withBlock:block useId:subscriptionId];
+}
+
+- (NSString *)subscribeToDestination:(NSString *)destination ackMode:(NSString *)ackMode withBlock:(ELSubscriptionCallback)block {
+  static NSInteger counter = 0;
+  NSString *subscriptionId = [NSString stringWithFormat:@"sub-%d", counter++];
+
+  return [self subscribeToDestination:destination ackMode:ackMode withBlock:block useId:subscriptionId];
+}
+
+- (NSString *)subscribeToDestination:(NSString *)destination ackMode:(NSString *)ackMode withBlock:(ELSubscriptionCallback)block useId:(NSString *)subscriptionId {
   NSAssert(block != nil, @"Message handler block must not be nil");
 
-  NSDictionary *headers = @{@"destination": destination, @"id": subscriptionId};
+  NSMutableDictionary *headers = [@{@"destination": destination, @"id": subscriptionId} mutableCopy];
+  if (ackMode && ![ackMode isEqualToString:@"auto"]) {
+    headers[@"ack"] = ackMode;
+  }
   ELStompFrame *subscribeFrame = [[ELStompFrame alloc] initWithCommand:@"SUBSCRIBE" headers:headers body:nil];
 
-  NSDictionary *subscriptionData = @{ @"destination": destination, @"callback": [block copy] };
+  NSDictionary *subscriptionData = @{ @"headers": headers, @"callback": [block copy] };
   [self.subscriptions setObject:subscriptionData forKey:subscriptionId];
 
   [self.transport send:subscribeFrame];
@@ -114,6 +125,10 @@
   [self.transport send:frame];
 }
 
+- (void)send:(ELStompFrame *)frame {
+  [self.transport send:frame];
+}
+
 
 #pragma mark - Receiving data
 
@@ -135,7 +150,8 @@
     // Resubscribe all subscriptions if we reconnected due to connection failure
     for (NSString *subscriptionId in [self.subscriptions allKeys]) {
       NSDictionary *subscriptionData = self.subscriptions[subscriptionId];
-      [self subscribeToDestination:subscriptionData[@"destination"] withBlock:subscriptionData[@"callback"] useId:subscriptionId];
+      NSDictionary *headers = subscriptionData[@"headers"];
+      [self subscribeToDestination:headers[@"destination"] ackMode:headers[@"ack"] withBlock:subscriptionData[@"callback"] useId:subscriptionId];
     }
 
     if (self.onConnectBlock) {

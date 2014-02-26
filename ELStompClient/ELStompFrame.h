@@ -19,4 +19,7 @@
 - (id)initWithMarshaledHeader:(NSString *)header;
 - (NSString *)marshal;
 
+- (ELStompFrame *)ackFrame;
+- (ELStompFrame *)nackFrame;
+
 @end

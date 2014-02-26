@@ -277,4 +277,19 @@
   [transportMock verify];
 }
 
+- (void)testSubscribeWithAckMode {
+  [self testConnecting];
+
+  [[self.transportMock expect] send:[OCMArg checkWithBlock:^BOOL(id obj) {
+    ELStompFrame *frame = (ELStompFrame *)obj;
+    return [frame.command isEqualToString:@"SUBSCRIBE"] && [frame.headers[@"ack"] isEqualToString:@"client-individual"];
+  }]];
+
+  NSString *subscribeId = [self.client subscribeToDestination:@"topic1" ackMode:@"client-individual" withBlock:^(ELStompFrame *msg) {
+  }];
+
+  XCTAssertNotNil(subscribeId, @"");
+  [self.transportMock verify];
+}
+
 @end

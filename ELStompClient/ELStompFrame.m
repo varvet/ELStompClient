@@ -101,4 +101,14 @@
   return string;
 }
 
+- (ELStompFrame *)ackFrame {
+  NSDictionary *headers = @{@"id": self.headers[@"ack"]};
+  return [[ELStompFrame alloc] initWithCommand:@"ACK" headers:headers body:nil];
+}
+
+- (ELStompFrame *)nackFrame {
+  NSDictionary *headers = @{@"id": self.headers[@"ack"]};
+  return [[ELStompFrame alloc] initWithCommand:@"NACK" headers:headers body:nil];
+}
+
 @end

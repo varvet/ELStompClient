@@ -117,4 +117,24 @@
   XCTAssertNil(unmarshaledFrame.body, @"");
 }
 
+- (void)testGeneratingAckFrame {
+  ELStompFrame *frame = [[ELStompFrame alloc] initWithCommand:@"MESSAGE" headers:@{@"destination": @"test", @"message-id": @"123", @"ack": @"some-id"} body:nil];
+  ELStompFrame *ackFrame = [frame ackFrame];
+
+  XCTAssertEqualObjects(ackFrame.command, @"ACK", @"");
+  NSDictionary *expectedHeaders = @{@"id": @"some-id"};
+  XCTAssertEqualObjects(ackFrame.headers, expectedHeaders, @"");
+  XCTAssertNil(ackFrame.body, @"");
+}
+
+- (void)testGeneratingNackFrame {
+  ELStompFrame *frame = [[ELStompFrame alloc] initWithCommand:@"MESSAGE" headers:@{@"destination": @"test", @"message-id": @"123", @"ack": @"some-id"} body:nil];
+  ELStompFrame *nackFrame = [frame nackFrame];
+
+  XCTAssertEqualObjects(nackFrame.command, @"NACK", @"");
+  NSDictionary *expectedHeaders = @{@"id": @"some-id"};
+  XCTAssertEqualObjects(nackFrame.headers, expectedHeaders, @"");
+  XCTAssertNil(nackFrame.body, @"");
+}
+
 @end

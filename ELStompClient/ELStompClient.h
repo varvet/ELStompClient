@@ -27,8 +27,10 @@ typedef void(^ELSubscriptionCallback)(ELStompFrame *msg);
 - (BOOL)isConnected;
 
 - (NSString *)subscribeToDestination:(NSString *)destination withBlock:(ELSubscriptionCallback)block;
+- (NSString *)subscribeToDestination:(NSString *)destination ackMode:(NSString *)ackMode withBlock:(ELSubscriptionCallback)block;
 - (void)unsubscribe:(NSString *)subscriptionId;
 
 - (void)send:(NSString *)body toDestination:(NSString *)destination;
+- (void)send:(ELStompFrame *)frame;
 
 @end

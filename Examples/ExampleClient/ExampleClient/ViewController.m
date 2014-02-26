@@ -31,8 +31,9 @@
   NSString *address = @"localhost:8675";
 
   [self.client connectTo:address inBackground:^{
-    [self.client subscribeToDestination:@"test" withBlock:^(ELStompFrame *msg) {
+    [self.client subscribeToDestination:@"test" ackMode:@"client-individual" withBlock:^(ELStompFrame *msg) {
       self.outputTextView.text = [self.outputTextView.text stringByAppendingString:msg.body];
+      [self.client send:[msg ackFrame]];
     }];
   }];
 }
