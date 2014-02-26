@@ -57,7 +57,7 @@
   }]];
 
   self.client = [[ELStompClient alloc] initWithTransport:self.transportMock];
-  [self.client connectTo:@"localhost"];
+  [self.client connectTo:@"localhost" inBackground:nil];
 
   onConnectBlock();
 
@@ -127,7 +127,7 @@
   }]];
 
   self.client = [[ELStompClient alloc] initWithTransport:self.transportMock];
-  [self.client connectTo:@"localhost"];
+  [self.client connectTo:@"localhost" inBackground:nil];
 
   onConnectBlock();
 
@@ -198,7 +198,7 @@
     return [frame.command isEqualToString:@"CONNECT"];
   }]];
 
-  [client connectTo:@"localhost"];
+  [client connectTo:@"localhost" inBackground:nil];
   onConnectBlock();
 
   NSDictionary *connectedHeaders = @{@"version": @"1.2", @"session": @"s1", @"server": @"MockServer/1.0"};
@@ -246,7 +246,7 @@
     return [frame.command isEqualToString:@"CONNECT"];
   }]];
 
-  [client connectTo:@"localhost"];
+  [client connectTo:@"localhost" inBackground:nil];
   onConnectBlock();
 
   NSDictionary *connectedHeaders = @{@"version": @"1.2", @"session": @"s1", @"server": @"MockServer/1.0"};
@@ -270,7 +270,7 @@
 
   [client disconnect];
 
-  [client connectTo:@"localhost"];
+  [client connectTo:@"localhost" inBackground:nil];
   onConnectBlock();
   onMessageBlock(connectedFrame);
 
