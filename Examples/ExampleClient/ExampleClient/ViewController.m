@@ -9,6 +9,7 @@
 #import <ELStompClient/ELStompClient.h>
 #import <ELStompClient/ELStompFrame.h>
 #import <ELStompClient/ELWebsocketTransport.h>
+#import <ELStompClient/ELTCPTransport.h>
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -22,10 +23,14 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  ELWebsocketTransport *websocketTransport = [[ELWebsocketTransport alloc] init];
-  self.client = [[ELStompClient alloc] initWithTransport:websocketTransport];
+  //ELWebsocketTransport *websocketTransport = [[ELWebsocketTransport alloc] init];
+  ELTCPTransport *tcpTransport = [[ELTCPTransport alloc] init];
+  self.client = [[ELStompClient alloc] initWithTransport:tcpTransport];
 
-  [self.client connectTo:@"ws://localhost:8675" inBackground:^{
+  //NSString *address = @"ws://localhost:8675";
+  NSString *address = @"localhost:8675";
+
+  [self.client connectTo:address inBackground:^{
     [self.client subscribeToDestination:@"test" withBlock:^(ELStompFrame *msg) {
       self.outputTextView.text = [self.outputTextView.text stringByAppendingString:msg.body];
     }];

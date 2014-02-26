@@ -16,6 +16,7 @@
 
 - (id)initWithCommand:(NSString *)command headers:(NSDictionary *)headers body:(NSString *)body;
 - (id)initWithMarshaledFrame:(NSString *)frame;
+- (id)initWithMarshaledHeader:(NSString *)header;
 - (NSString *)marshal;
 
 @end

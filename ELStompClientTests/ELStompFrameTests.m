@@ -107,4 +107,14 @@
   XCTAssertEqualObjects(frame.body, @"Hello\0null\0chars", @"");
 }
 
+- (void)testUnmarshalingHeadersOnly {
+  NSString *marshaledHeader = @"CONNECT\nkey:value\ncontent-length:5";
+
+  ELStompFrame *unmarshaledFrame = [[ELStompFrame alloc] initWithMarshaledHeader:marshaledHeader];
+  XCTAssertEqualObjects(unmarshaledFrame.command, @"CONNECT", @"");
+  NSDictionary *expectedHeaders = @{@"content-length": @"5", @"key": @"value"};
+  XCTAssertEqualObjects(unmarshaledFrame.headers, expectedHeaders, @"");
+  XCTAssertNil(unmarshaledFrame.body, @"");
+}
+
 @end

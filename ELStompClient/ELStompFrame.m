@@ -21,14 +21,28 @@
 }
 
 - (id)initWithMarshaledFrame:(NSString *)frame {
-  if (self = [super init]) {
-    NSArray *components = [frame componentsSeparatedByString:@"\n\n"];
-    if ([components count] < 2) {
-      components = [frame componentsSeparatedByString:@"\r\n\r\n"];
-    }
+  NSArray *components = [frame componentsSeparatedByString:@"\n\n"];
+  if ([components count] < 2) {
+    components = [frame componentsSeparatedByString:@"\r\n\r\n"];
+  }
 
-    NSMutableArray *headerLines = [[components[0] componentsSeparatedByString:@"\n"] mutableCopy];
+  if (self = [self initWithMarshaledHeader:components[0]]) {
     NSString *bodyData = components[1];
+
+    if (self.headers[@"content-length"]) {
+      self.body = [bodyData substringToIndex:[self.headers[@"content-length"] intValue]];
+    } else {
+      NSRange endRange = [bodyData rangeOfString:@"\0"];
+      self.body = [bodyData substringToIndex:endRange.location];
+    }
+  }
+
+  return self;
+}
+
+- (id)initWithMarshaledHeader:(NSString *)header {
+  if (self = [super init]) {
+    NSMutableArray *headerLines = [[header componentsSeparatedByString:@"\n"] mutableCopy];
 
     self.command = [headerLines[0] stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     [headerLines removeObjectAtIndex:0];
@@ -41,13 +55,6 @@
     }
 
     self.headers = [NSDictionary dictionaryWithDictionary:mutableHeaders];
-
-    if (self.headers[@"content-length"]) {
-      self.body = [bodyData substringToIndex:[self.headers[@"content-length"] intValue]];
-    } else {
-      NSRange endRange = [bodyData rangeOfString:@"\0"];
-      self.body = [bodyData substringToIndex:endRange.location];
-    }
   }
 
   return self;
